@@ -62,9 +62,16 @@ class EZPDF:
                 merger.append(pdf)
             except Exception as e:
                 print(f"Error appending file {pdf}: {e}")
-
-        output_filename = os.path.join(output_dir, 'Complete.pdf')
-
+        
+        try:
+            output = str(input("""
+╔══════════════════════════════════════════════════╗
+║ Enter filename:                                  ║
+╚══════════════════════════════════════════════════╝
+"""))+".pdf"
+            output_filename = os.path.join(output_dir, output)
+        except Exception as e:
+            print(f"Error saving merged PDF: {e}")
         try:
             merger.write(output_filename)       
             merger.close()
