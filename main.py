@@ -57,7 +57,7 @@ class EZPDF:
 
         
         for pdf in self.filenames:
-            
+
             try:
                 merger.append(pdf)
             except Exception as e:
@@ -68,6 +68,7 @@ class EZPDF:
         try:
             merger.write(output_filename)       
             merger.close()
+            print(f"Merged PDF saved as {output_filename}")
         except Exception as e:
             print(f"Error saving merged PDF: {e}")
                     
